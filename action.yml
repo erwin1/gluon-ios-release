@@ -7,10 +7,14 @@ inputs:
   platform:
     description: 'The platform to build for: linux, windows, ios, android'
     required: true  
+  graalvm-version:
+    description: 'GraalVM version'
+    required: false
+    default: '20.2.0.java11'
 runs:
   using: "composite"
   steps: 
     - run: mvn -P${{ inputs.platform }} client:build client:package
       shell: bash
       env:
-        GRAALVM_HOME: ${{ JAVA_HOME }}
+        GRAALVM_HOME: /System/Volumes/Data/Users/runner/hostedtoolcache/GraalVM/${{ inputs.graalvm-version }}/x64/
