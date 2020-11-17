@@ -10,7 +10,7 @@ inputs:
 runs:
   using: "composite"
   steps: 
-    - run: mvn -P${{ platform }} client:build client:package
+    - run: mvn -P${{ inputs.platform }} client:build client:package
       shell: bash
       env:
-        GRAALVM_HOME = ${{ JAVA_HOME }}
+        GRAALVM_HOME: ${{ JAVA_HOME }}
