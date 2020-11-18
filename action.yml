@@ -15,8 +15,11 @@ runs:
   using: "composite"
   steps: 
     - run: printf "${{ inputs.gluon-license }}"
+      shell: bash
     - run: printf "${{ inputs.gluon-license }}" > src/main/resources/gluonmobile.license
+      shell: bash
     - run: cat src/main/resources/gluonmobile.license 
+      shell: bash
     - run: mvn -P${{ inputs.platform }} client:build client:package
       shell: bash
       env:
