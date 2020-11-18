@@ -16,3 +16,5 @@ runs:
   steps: 
     - run: mvn -P${{ inputs.platform }} client:build client:package
       shell: bash
+      env:
+        GRAALVM_HOME: ${{ env.JAVA_HOME }}
