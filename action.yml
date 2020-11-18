@@ -16,5 +16,3 @@ runs:
   steps: 
     - run: mvn -P${{ inputs.platform }} client:build client:package
       shell: bash
-      env:
-        GRAALVM_HOME: /System/Volumes/Data/Users/runner/hostedtoolcache/GraalVM/${{ inputs.graalvm-version }}/x64/
